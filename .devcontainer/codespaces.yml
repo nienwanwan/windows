@@ -1,22 +1,13 @@
 services:
-  devcontainer:
-    image: mcr.microsoft.com/devcontainers/base:ubuntu
-    container_name: devcontainer
-    command: sleep infinity
-    volumes:
-      - /tmp/shared:/shared
-    depends_on:
-      - windows
-
   windows:
     container_name: windows
     build:
       context: .
       dockerfile: Dockerfile.codespace
     environment:
-      RAM_SIZE: "max"
-      DISK_SIZE: "100G"
-      CPU_CORES: "max"
+      RAM_SIZE: "8G"
+      DISK_SIZE: "64G"
+      CPU_CORES: "4"
     devices:
       - /dev/kvm
       - /dev/net/tun
