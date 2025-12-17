@@ -1,4 +1,13 @@
 services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu
+    container_name: devcontainer
+    command: sleep infinity
+    volumes:
+      - ./shared:/shared
+    depends_on:
+      - windows
+
   windows:
     container_name: windows
     build:
