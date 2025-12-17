@@ -1,17 +1,17 @@
 {
-  "name": "Windows 11 LTSC",
+  "name": "Windows 11 Pro",
   "service": "windows",
   "containerEnv": {
-    "VERSION": "11l"
+    "VERSION": "11"
   },
-  "forwardPorts": [8006, 2222],
+  "forwardPorts": [2222, 8006],
   "portsAttributes": {
-    "8006": {
-      "label": "Web",
-      "onAutoForward": "notify"
-    },
     "2222": {
       "label": "SSH",
+      "onAutoForward": "notify"
+    },
+    "8006": {
+      "label": "Web",
       "onAutoForward": "notify"
     }
   },

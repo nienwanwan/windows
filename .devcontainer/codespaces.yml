@@ -2,12 +2,11 @@ services:
   windows:
     container_name: windows
     build:
-      context: ..
-      dockerfile: .devcontainer/Dockerfile.codespace
+      context: .
+      dockerfile: Dockerfile.codespace
     environment:
-      VERSION: "11l"
       RAM_SIZE: "8G"
-      DISK_SIZE: "32G"
+      DISK_SIZE: "64G"
       CPU_CORES: "4"
     devices:
       - /dev/kvm
@@ -23,5 +22,5 @@ services:
       - /tmp/windows:/storage
       - /tmp/shared:/shared
       - /tmp/oem:/oem
-    restart: "no"
+    restart: on-failure
     stop_grace_period: 2m
