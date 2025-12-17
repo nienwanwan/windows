@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y openssh-server sshpass && \
     passwd -d root && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY --chmod=755 .devcontainer/start.sh /start.sh
+RUN printf '#!/bin/bash\n/usr/sbin/sshd\nexec /usr/bin/tini -s /run/entry.sh\n' > /start.sh && chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
