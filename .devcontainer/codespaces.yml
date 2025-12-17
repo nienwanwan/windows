@@ -22,5 +22,5 @@ services:
       - /tmp/windows:/storage
       - /tmp/shared:/shared
       - /tmp/oem:/oem
-    restart: on-failure
+    restart: "no"
     stop_grace_period: 2m
