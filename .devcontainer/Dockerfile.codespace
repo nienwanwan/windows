@@ -1,6 +1,6 @@
 FROM ghcr.io/dockur/windows
 
-RUN apt-get update && apt-get install -y openssh-server sshpass nodejs && \
+RUN apt-get update && apt-get install -y openssh-server sshpass && \
     mkdir -p /run/sshd && \
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config && \
     echo 'PermitEmptyPasswords yes' >> /etc/ssh/sshd_config && \
