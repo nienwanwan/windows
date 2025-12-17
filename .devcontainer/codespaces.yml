@@ -1,7 +1,9 @@
 services:
   windows:
     container_name: windows
-    image: ghcr.io/dockur/windows
+    build:
+      context: .
+      dockerfile: Dockerfile.codespace
     environment:
       RAM_SIZE: "8G"
       DISK_SIZE: "64G"
