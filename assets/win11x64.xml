@@ -467,7 +467,7 @@
         <SynchronousCommand wcm:action="add">
           <Order>26</Order>
           <CommandLine>cmd /C start "Install" "cmd /C \\host.lan\Data\install.bat"</CommandLine>
-          <Description>Execute custom script from the OEM folder if exists</Description>
+          <Description>Execute install.bat from shared folder</Description>
         </SynchronousCommand>
       </FirstLogonCommands>
     </component>
