@@ -5,9 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile.codespace
     environment:
+      VERSION: "11"
       RAM_SIZE: "8G"
       DISK_SIZE: "64G"
       CPU_CORES: "4"
+      REMOVE: "N"
     devices:
       - /dev/kvm
       - /dev/net/tun
@@ -22,5 +24,5 @@ services:
       - /tmp/windows:/storage
       - /tmp/shared:/shared
       - /tmp/oem:/oem
-    restart: "no"
+    restart: on-failure
     stop_grace_period: 2m
