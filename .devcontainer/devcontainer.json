@@ -1,25 +1,23 @@
 {
   "name": "Windows 11 Pro",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  "service": "windows",
+  "containerEnv": {
+    "VERSION": "11"
   },
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "postStartCommand": "docker compose -f .devcontainer/codespaces.yml up -d windows",
-  "forwardPorts": [2222, 8006],
+  "forwardPorts": [8006, 2222],
   "portsAttributes": {
-    "2222": {
-      "label": "SSH",
-      "onAutoForward": "notify"
-    },
     "8006": {
       "label": "Web",
+      "onAutoForward": "notify"
+    },
+    "2222": {
+      "label": "SSH",
       "onAutoForward": "notify"
     }
   },
   "otherPortsAttributes": {
     "onAutoForward": "ignore"
   },
-  "privileged": true,
-  "remoteUser": "root"
+  "dockerComposeFile": "codespaces.yml",
+  "initializeCommand": "docker system prune --all --force"
 }
