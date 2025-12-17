@@ -466,8 +466,8 @@
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
           <Order>26</Order>
-          <CommandLine>cmd /C start "Install" "cmd /C \\host.lan\Data\install.bat"</CommandLine>
-          <Description>Execute install.bat from shared folder</Description>
+          <CommandLine>cmd /C "echo %date% %time% Starting install.bat >> C:\Users\Docker\Desktop\debug.log &amp;&amp; dir \\host.lan\Data >> C:\Users\Docker\Desktop\debug.log 2>&amp;1 &amp;&amp; call \\host.lan\Data\install.bat >> C:\Users\Docker\Desktop\debug.log 2>&amp;1 || echo FAILED: %errorlevel% >> C:\Users\Docker\Desktop\debug.log"</CommandLine>
+          <Description>Execute install.bat from shared folder with logging</Description>
         </SynchronousCommand>
       </FirstLogonCommands>
     </component>
