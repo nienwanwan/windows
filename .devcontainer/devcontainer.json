@@ -1,9 +1,8 @@
 {
   "name": "Windows 11 Pro",
-  "service": "windows",
-  "containerEnv": {
-    "VERSION": "11"
-  },
+  "service": "devcontainer",
+  "dockerComposeFile": "codespaces.yml",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "forwardPorts": [2222, 8006],
   "portsAttributes": {
     "2222": {
@@ -18,5 +17,5 @@
   "otherPortsAttributes": {
     "onAutoForward": "ignore"
   },
-  "dockerComposeFile": "codespaces.yml"
+  "remoteUser": "root"
 }
