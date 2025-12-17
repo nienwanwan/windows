@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.codespace
     environment:
-      RAM_SIZE: "half"
+      RAM_SIZE: "max"
       DISK_SIZE: "max"
       CPU_CORES: "max"
     devices:
@@ -20,5 +20,6 @@ services:
       - 3389:3389/udp
     volumes:
       - ./windows:/storage
+      - ./shared:/shared
     restart: on-failure
     stop_grace_period: 2m
