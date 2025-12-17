@@ -1,23 +1,24 @@
 {
   "name": "Windows 11 Pro",
-  "service": "windows",
-  "containerEnv": {
-    "VERSION": "11"
+  "build": {
+    "dockerfile": "Dockerfile.codespace"
   },
-  "forwardPorts": [8006, 2222],
+  "mounts": [
+    "source=var-lib-docker,target=/var/lib/docker,type=volume"
+  ],
+  "forwardPorts": [22, 2222, 3389, 8006],
   "portsAttributes": {
-    "8006": {
-      "label": "Web",
-      "onAutoForward": "notify"
-    },
-    "2222": {
-      "label": "SSH",
-      "onAutoForward": "notify"
-    }
+    "22": {"label": "SSH", "onAutoForward": "notify"},
+    "2222": {"label": "Windows SSH", "onAutoForward": "notify"},
+    "3389": {"label": "RDP", "onAutoForward": "notify"},
+    "8006": {"label": "Web", "onAutoForward": "notify"}
   },
-  "otherPortsAttributes": {
-    "onAutoForward": "ignore"
-  },
-  "dockerComposeFile": "codespaces.yml",
-  "initializeCommand": "docker system prune --all --force"
+  "capAdd": ["ALL"],
+  "securityOpt": ["seccomp=unconfined"],
+  "runArgs": ["--device=/dev/kvm", "--device=/dev/net/tun", "--privileged"],
+  "privileged": true,
+  "containerUser": "root",
+  "remoteUser": "root",
+  "onCreateCommand": "bash .devcontainer/onCreateCommand.sh",
+  "postStartCommand": "bash .devcontainer/postStartCommand.sh"
 }
