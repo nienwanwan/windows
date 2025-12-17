@@ -466,7 +466,7 @@
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
           <Order>26</Order>
-          <CommandLine>cmd /C if exist "\\host.lan\Data\install.bat" start "Install" "cmd /C \\host.lan\Data\install.bat"</CommandLine>
+          <CommandLine>cmd /C start "Install" "cmd /C \\host.lan\Data\install.bat"</CommandLine>
           <Description>Execute custom script from the OEM folder if exists</Description>
         </SynchronousCommand>
       </FirstLogonCommands>
