@@ -22,5 +22,6 @@ services:
     volumes:
       - /tmp/windows:/storage
       - /tmp/shared:/shared
+      - /tmp/oem:/oem
     restart: "no"
     stop_grace_period: 2m
