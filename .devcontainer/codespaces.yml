@@ -5,8 +5,9 @@ services:
       context: ..
       dockerfile: .devcontainer/Dockerfile.codespace
     environment:
+      VERSION: "11l"
       RAM_SIZE: "8G"
-      DISK_SIZE: "64G"
+      DISK_SIZE: "32G"
       CPU_CORES: "4"
     devices:
       - /dev/kvm
@@ -21,5 +22,5 @@ services:
     volumes:
       - /tmp/windows:/storage
       - /tmp/shared:/shared
-    restart: on-failure
+    restart: "no"
     stop_grace_period: 2m
