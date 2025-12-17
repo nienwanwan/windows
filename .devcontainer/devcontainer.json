@@ -16,7 +16,7 @@
   "portsAttributes": {"2222": {
             "label": "GitHub Codespaces (SSH)",
             "onAutoForward": "notify"
-        },"2": {
+        },"22": {
             "label": "GitHub Codes2paces (SSH)",
             "onAutoForward": "notify"
         },
