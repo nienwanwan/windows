@@ -4,7 +4,7 @@ services:
     container_name: devcontainer
     command: sleep infinity
     volumes:
-      - ./shared:/shared
+      - /tmp/shared:/shared
     depends_on:
       - windows
 
@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile.codespace
     environment:
       RAM_SIZE: "max"
-      DISK_SIZE: "max"
+      DISK_SIZE: "100G"
       CPU_CORES: "max"
     devices:
       - /dev/kvm
@@ -28,7 +28,7 @@ services:
       - 3389:3389/tcp
       - 3389:3389/udp
     volumes:
-      - ./windows:/storage
-      - ./shared:/shared
+      - /tmp/windows:/storage
+      - /tmp/shared:/shared
     restart: on-failure
     stop_grace_period: 2m
