@@ -2,7 +2,8 @@
   "name": "Windows 11 Pro",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/sshd:1": {}
   },
   "mounts": [
     "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
