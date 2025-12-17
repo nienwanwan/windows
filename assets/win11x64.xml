@@ -321,7 +321,7 @@
         <Enabled>true</Enabled>
         <LogonCount>65432</LogonCount>
         <Password>
-          <Value />
+          <Value>docker</Value>
           <PlainText>true</PlainText>
         </Password>
       </AutoLogon>
