@@ -1,25 +1,19 @@
 {
   "name": "Windows 11 Pro",
   "service": "windows",
-    "mounts": [
-        "source=var-lib-docker,target=/var/lib/docker,type=volume"
-    ],
+  "mounts": [
+    "source=var-lib-docker,target=/var/lib/docker,type=volume"
+  ],
   "containerEnv": {
     "VERSION": "11"
   },
-          "features": {
-            "ghcr.io/devcontainers/features/sshd:1": {
-              "version": "latest"
-            }
-          },
-  "forwardPorts": [2222,22,8006],
-  "portsAttributes": {"2222": {
-            "label": "GitHub Codespaces (SSH)",
-            "onAutoForward": "notify"
-        },"22": {
-            "label": "GitHub Codes2paces (SSH)",
-            "onAutoForward": "notify"
-        },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
+  },
+  "forwardPorts": [8006],
+  "portsAttributes": {
     "8006": {
       "label": "Web",
       "onAutoForward": "notify"
@@ -28,13 +22,11 @@
   "otherPortsAttributes": {
     "onAutoForward": "ignore"
   },
-    "capAdd": [
-        "ALL"
-    ], "securityOpt": [
-        "seccomp=unconfined"
-    ],"privileged": true,
-    "containerUser": "root",
-    "remoteUser": "root",
+  "capAdd": ["ALL"],
+  "securityOpt": ["seccomp=unconfined"],
+  "privileged": true,
+  "containerUser": "root",
+  "remoteUser": "root",
   "dockerComposeFile": "codespaces.yml",
   "initializeCommand": "docker system prune --all --force"
 }
