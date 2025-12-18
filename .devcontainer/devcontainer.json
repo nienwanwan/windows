@@ -3,17 +3,16 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/sshd:1": {
-      "sshPort": 2223
-    }
+    "ghcr.io/devcontainers/features/sshd:1": {}
   },
   "mounts": [
     "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
   ],
   "runArgs": ["--privileged", "--device=/dev/kvm", "--device=/dev/net/tun"],
-  "forwardPorts": [8006, 3389],
+  "forwardPorts": [8006, 2222, 3389],
   "portsAttributes": {
     "8006": {"label": "Web", "onAutoForward": "notify"},
+    "2222": {"label": "SSH", "onAutoForward": "notify"},
     "3389": {"label": "RDP", "onAutoForward": "notify"}
   },
   "postStartCommand": "bash .devcontainer/postStartCommand.sh",
