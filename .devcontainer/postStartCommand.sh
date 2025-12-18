@@ -7,6 +7,9 @@ for i in {1..30}; do
     sleep 1
 done
 
+# Remove existing container if exists
+docker rm -f windows 2>/dev/null || true
+
 # Start Windows container
 docker run -d --name windows \
   -e VERSION=11 \
@@ -23,6 +26,6 @@ docker run -d --name windows \
   -v /workspaces/windows/.devcontainer/oem:/oem \
   --privileged \
   --restart on-failure \
-  dockurr/windows || docker start windows
+  dockurr/windows
 
 echo "Windows container started"
