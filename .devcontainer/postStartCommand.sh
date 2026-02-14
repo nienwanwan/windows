@@ -20,7 +20,6 @@ docker run -d --name windows \
   --device=/dev/net/tun \
   --cap-add NET_ADMIN \
   -p 8006:8006 \
-  -p 2222:22 \
   -p 3389:3389 \
   -v /tmp/windows:/storage \
   -v /workspaces/windows/.devcontainer/oem:/oem \
